@@ -1,0 +1,41 @@
+﻿<Page x:Class="dem2.ZajavkiPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:dem2"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ZajavkiPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="DataGridZajavki" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id" Binding="{Binding id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя заказчика" Binding="{Binding User.name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер телефона заказчика" Binding="{Binding User.number}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата заявки" Binding="{Binding data}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Текст" Binding="{Binding text}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="EditButton" Click="EditButton_Click">Edit</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="AddButton" Click="AddButton_Click">ADD</Button>
+            <Button Name="DeleteButton" Click="DeleteButton_Click" Grid.Column="1">DELETE</Button>
+        </Grid>
+    </Grid>
+</Page>
